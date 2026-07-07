@@ -1,14 +1,1224 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/mywebsite/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mywebsite</title>
-    <script type="module" crossorigin src="/mywebsite/assets/index-mcstWOXL.js"></script>
-    <link rel="stylesheet" crossorigin href="/mywebsite/assets/index-Bty4G45y.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leilani Morales — Industrial Engineer · Columbia University</title>
+<meta name="description" content="Leilani Morales — Industrial Engineering student & Egleston Scholar at Columbia University. Engineering, sustainability, AI, and venture growth. RISE Fellow and first recipient from Puerto Rico." />
+<meta name="author" content="Leilani Morales" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Leilani Morales — Industrial Engineer · Columbia University" />
+<meta property="og:description" content="Engineering sustainability, data-driven decision-making, and innovation rooted in uplifting under-resourced communities." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+<!-- Favicon: monogram in an ink circle -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%231C1B22'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='50' fill='white' text-anchor='middle'%3ELM%3C/text%3E%3C/svg%3E" />
+
+<style>
+  /* =========================================================
+     DESIGN TOKENS — refined, professional, warm-neutral
+     with a single muted dusty-rose accent
+     ========================================================= */
+  :root {
+    --bg:        #FBFAF9;   /* warm off-white */
+    --bg-alt:    #F5F2EF;   /* subtle section tint */
+    --card:      #FFFFFF;
+
+    --ink:       #1C1B22;   /* near-black — headings, primary UI */
+    --ink-2:     #34323C;   /* strong text */
+    --text:      #45424C;   /* body text */
+    --muted:     #74717D;   /* muted / secondary text */
+
+    --line:      #E8E4DF;   /* warm hairline border */
+    --line-2:    #DCD7D1;
+
+    --accent:      #9A4F63; /* muted dusty rose — the only accent */
+    --accent-deep: #7C3E50;
+    --accent-mid:  #C18E9B;
+    --accent-tint: #F2E7E9; /* very light rose fill */
+
+    --shadow-sm: 0 1px 2px rgba(28,27,34,0.05), 0 2px 8px rgba(28,27,34,0.04);
+    --shadow-md: 0 10px 30px rgba(28,27,34,0.08);
+    --shadow-lg: 0 24px 60px rgba(28,27,34,0.12);
+
+    --radius:    16px;
+    --radius-sm: 11px;
+    --maxw:      1120px;
+
+    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    --z-nav: 50;
+  }
+
+  /* =========================================================
+     RESET & BASE
+     ========================================================= */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(50rem 40rem at 88% -10%, rgba(154,79,99,0.06), transparent 60%),
+      radial-gradient(46rem 40rem at -8% 8%, rgba(28,27,34,0.035), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  ::selection { background: var(--accent-tint); color: var(--accent-deep); }
+
+  /* =========================================================
+     LAYOUT HELPERS
+     ========================================================= */
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 100px 0; position: relative; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 30px; height: 1px;
+    background: var(--accent-mid);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    line-height: 1.14;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  .section-lead {
+    max-width: 62ch;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 1.06rem;
+  }
+
+  /* =========================================================
+     NAVBAR
+     ========================================================= */
+  .nav {
+    position: fixed;
+    top: 16px; left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: var(--maxw);
+    z-index: var(--z-nav);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px 11px 20px;
+    background: rgba(251, 250, 249, 0.78);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+  }
+  .nav.scrolled { box-shadow: var(--shadow-md); background: rgba(251, 250, 249, 0.94); }
+
+  .brand {
+    display: flex; align-items: center; gap: 11px;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .brand .mono {
+    width: 36px; height: 36px;
+    display: grid; place-items: center;
+    border-radius: 9px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 2px; }
+  .nav-links a {
+    font-size: 0.91rem;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 9px 14px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); background: var(--bg-alt); }
+
+  .nav-cta {
+    margin-left: 6px;
+    background: var(--ink);
+    color: #fff !important;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--accent-deep) !important; color: #fff !important; }
+
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    border: none; background: transparent;
+    cursor: pointer;
+    border-radius: 9px;
+    color: var(--ink);
+  }
+  .nav-toggle:hover { background: var(--bg-alt); }
+
+  /* =========================================================
+     BUTTONS
+     ========================================================= */
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.96rem;
+    padding: 13px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease, color 0.2s ease, border-color 0.2s ease;
+    will-change: transform;
+  }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(28,27,34,0.18);
+  }
+  .btn-primary:hover { background: var(--accent-deep); box-shadow: 0 12px 28px rgba(124,62,80,0.28); transform: translateY(-2px); }
+  .btn-ghost {
+    background: #fff;
+    color: var(--ink);
+    border-color: var(--line-2);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-deep); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+  .hero { padding-top: 168px; padding-bottom: 86px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 16px 7px 11px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 26px;
+  }
+  .hero-badge .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(154,79,99,0.16);
+  }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(2.9rem, 6.2vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .hero h1 .script {
+    display: block;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+  .hero-role {
+    margin-top: 22px;
+    font-size: 1.12rem;
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+  .hero-role .sep { color: var(--accent-mid); margin: 0 10px; }
+  .hero p.intro {
+    margin-top: 20px;
+    max-width: 56ch;
+    color: var(--muted);
+    font-size: 1.06rem;
+  }
+  .hero p.intro strong { color: var(--ink-2); font-weight: 600; }
+  .hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+  .hero-meta {
+    margin-top: 40px;
+    display: flex; flex-wrap: wrap; gap: 18px 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta .num {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .hero-meta .lbl { font-size: 0.82rem; color: var(--muted); margin-top: 7px; }
+
+  /* Hero portrait — clean, refined monogram card */
+  .hero-art { position: relative; display: grid; place-items: center; }
+  .portrait {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 4 / 5;
+    border-radius: 18px;
+    background: linear-gradient(165deg, #fff 0%, var(--bg-alt) 100%);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .portrait::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(18rem 18rem at 78% 12%, rgba(154,79,99,0.07), transparent 60%);
+  }
+  .portrait .monogram {
+    position: relative;
+    font-family: var(--font-serif);
+    font-size: 7rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .portrait .tag {
+    position: absolute;
+    bottom: 20px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    box-shadow: var(--shadow-sm);
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .portrait .tag svg { width: 14px; height: 14px; color: var(--accent); }
+
+  /* =========================================================
+     CARDS / GENERIC
+     ========================================================= */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* =========================================================
+     ABOUT
+     ========================================================= */
+  .about-grid { display: grid; grid-template-columns: 1fr 0.9fr; gap: 64px; align-items: start; }
+  .about-body p { color: var(--muted); margin-bottom: 18px; font-size: 1.05rem; }
+  .about-body p strong { color: var(--ink-2); font-weight: 600; }
+  .about-quote {
+    margin-top: 26px;
+    padding: 22px 28px;
+    border-left: 2px solid var(--accent);
+    background: var(--bg-alt);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.16rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .facts { display: grid; gap: 14px; }
+  .fact {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px 22px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .fact:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+  .fact .ic {
+    flex: none;
+    width: 44px; height: 44px;
+    display: grid; place-items: center;
+    border-radius: 11px;
+    background: var(--accent-tint);
+    color: var(--accent-deep);
+  }
+  .fact .ic svg { width: 22px; height: 22px; }
+  .fact h4 { font-size: 1rem; font-weight: 600; color: var(--ink); }
+  .fact p { font-size: 0.9rem; color: var(--muted); margin-top: 3px; }
+
+  /* =========================================================
+     SKILLS
+     ========================================================= */
+  .skills-head { max-width: 720px; margin: 0 auto; text-align: center; }
+  .skills-head .section-lead { margin-left: auto; margin-right: auto; }
+  .skills-grid {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .skill-card { padding: 28px 24px; }
+  .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+  .skill-card .ic {
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    border-radius: 12px;
+    background: var(--ink);
+    color: #fff;
+    margin-bottom: 18px;
+  }
+  .skill-card .ic svg { width: 24px; height: 24px; }
+  .skill-card h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--ink); }
+  .skill-card p { font-size: 0.92rem; color: var(--muted); margin-top: 8px; }
+  .pill-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 7px; }
+  .pill {
+    font-size: 0.77rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    padding: 5px 11px;
+    border-radius: 7px;
+  }
+
+  /* =========================================================
+     PROJECTS
+     ========================================================= */
+  .proj-grid {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .proj {
+    padding: 30px 30px 28px;
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  .proj::after {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .proj:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+  .proj:hover::after { transform: scaleX(1); }
+  .proj.featured { grid-column: span 2; }
+  .proj-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .proj-ic {
+    flex: none;
+    width: 46px; height: 46px;
+    display: grid; place-items: center;
+    border-radius: 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .proj-ic svg { width: 23px; height: 23px; }
+  .proj-org { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+  .proj h3 { font-family: var(--font-serif); font-size: 1.36rem; font-weight: 600; color: var(--ink); line-height: 1.2; margin-top: 3px; }
+  .proj p { color: var(--muted); font-size: 0.96rem; margin-top: 4px; flex: 1; }
+  .proj p strong { color: var(--ink-2); font-weight: 600; }
+  .proj.featured p { max-width: 72ch; }
+  .tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--ink-2);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    padding: 5px 11px; border-radius: 7px;
+  }
+
+  /* =========================================================
+     EXPERIENCE TIMELINE
+     ========================================================= */
+  .timeline { margin-top: 54px; position: relative; max-width: 860px; }
+  .timeline::before {
+    content: "";
+    position: absolute; left: 21px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--line-2);
+  }
+  .tl-item { position: relative; padding-left: 70px; padding-bottom: 36px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: 11px; top: 4px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+    display: grid; place-items: center;
+  }
+  .tl-dot::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .tl-card { padding: 24px 26px; }
+  .tl-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; align-items: baseline; }
+  .tl-role { font-family: var(--font-serif); font-size: 1.22rem; font-weight: 600; color: var(--ink); }
+  .tl-date { font-size: 0.82rem; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .tl-org { font-size: 0.94rem; font-weight: 600; color: var(--ink-2); margin-top: 2px; }
+  .tl-org .place { font-weight: 400; color: var(--muted); }
+  .tl-list { margin-top: 14px; display: grid; gap: 9px; }
+  .tl-list li { position: relative; padding-left: 22px; color: var(--muted); font-size: 0.95rem; }
+  .tl-list li::before {
+    content: ""; position: absolute; left: 0; top: 10px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-mid);
+  }
+
+  /* =========================================================
+     HONORS
+     ========================================================= */
+  .honors-grid {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .honor {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 22px 22px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .honor:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-mid); }
+  .honor .star {
+    flex: none;
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    border-radius: 10px;
+    background: var(--accent-tint);
+    color: var(--accent-deep);
+  }
+  .honor .star svg { width: 20px; height: 20px; }
+  .honor h4 { font-size: 0.97rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+  .honor p { font-size: 0.85rem; color: var(--muted); margin-top: 3px; }
+
+  /* Feature / Oxford spotlight */
+  .spotlight {
+    margin-top: 42px;
+    border-radius: var(--radius);
+    background: linear-gradient(150deg, #211F28 0%, var(--ink) 60%);
+    color: #fff;
+    padding: 52px 52px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute; top: -30%; right: -8%;
+    width: 28rem; height: 28rem; border-radius: 50%;
+    background: radial-gradient(circle, rgba(154,79,99,0.32), transparent 62%);
+  }
+  .spotlight .eyebrow { color: var(--accent-mid); }
+  .spotlight .eyebrow::before { background: var(--accent-mid); }
+  .spotlight blockquote {
+    position: relative;
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 3vw, 2.05rem);
+    line-height: 1.36;
+    font-weight: 500;
+    max-width: 28ch;
+  }
+  .spotlight blockquote em { font-style: italic; color: var(--accent-mid); }
+  .spotlight .by { position: relative; margin-top: 24px; font-size: 0.94rem; color: rgba(255,255,255,0.7); }
+  .spotlight .by strong { color: #fff; }
+
+  /* =========================================================
+     CONTACT
+     ========================================================= */
+  .contact-card {
+    text-align: center;
+    border-radius: var(--radius);
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    padding: 66px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-card::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(26rem 18rem at 50% -15%, rgba(154,79,99,0.07), transparent 62%);
+  }
+  .contact-card > * { position: relative; }
+  .contact-card h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4.4vw, 2.9rem);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.12;
+    max-width: 20ch;
+    margin: 0 auto;
+  }
+  .contact-card h2 em { font-style: italic; color: var(--accent); }
+  .contact-card p { margin: 18px auto 0; max-width: 52ch; color: var(--muted); }
+  .contact-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .contact-links { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: center; }
+  .contact-links a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.91rem; font-weight: 500; color: var(--ink-2);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .contact-links a:hover { color: var(--accent-deep); }
+  .contact-links svg { width: 17px; height: 17px; color: var(--accent); }
+
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  footer {
+    padding: 44px 0 52px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  footer .brand { justify-content: center; margin-bottom: 14px; }
+  footer p { font-size: 0.85rem; color: var(--muted); }
+  footer .socials { margin-top: 18px; display: flex; gap: 12px; justify-content: center; }
+  footer .socials a {
+    width: 42px; height: 42px; display: grid; place-items: center;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  footer .socials a:hover { transform: translateY(-3px); background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: var(--shadow-sm); }
+  footer .socials svg { width: 19px; height: 19px; }
+
+  /* =========================================================
+     SCROLL REVEAL
+     ========================================================= */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: 0.08s; }
+  .reveal.d2 { transition-delay: 0.16s; }
+  .reveal.d3 { transition-delay: 0.24s; }
+
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-art { order: -1; max-width: 300px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .honors-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    section { padding: 76px 0; }
+    .hero { padding-top: 140px; }
+    .nav-links {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      width: 240px;
+      background: rgba(251, 250, 249, 0.98);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: var(--shadow-md);
+      gap: 4px;
+      opacity: 0; visibility: hidden; transform: translateY(-10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .nav-links.open { opacity: 1; visibility: visible; transform: none; }
+    .nav-links a { padding: 12px 16px; }
+    .nav-cta { margin-left: 0; margin-top: 4px; text-align: center; justify-content: center; }
+    .nav-toggle { display: grid; place-items: center; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .proj.featured { grid-column: span 1; }
+    .spotlight { padding: 38px 28px; }
+    .contact-card { padding: 50px 24px; }
+  }
+  @media (max-width: 480px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .honors-grid { grid-template-columns: 1fr; }
+    .hero-meta { gap: 16px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <a href="#top" class="brand" aria-label="Leilani Morales — home">
+    <span class="mono" aria-hidden="true">LM</span>
+    <span>Leilani&nbsp;Morales</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#honors">Honors</a></li>
+    <li><a href="#contact" class="nav-cta">Let's connect</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+  </button>
+</nav>
+
+<span id="top"></span>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 class="reveal d1">
+        Leilani Morales
+        <span class="script">engineering with purpose.</span>
+      </h1>
+      <p class="hero-role reveal d2">
+        Egleston Scholar<span class="sep" aria-hidden="true">/</span>RISE Fellow<span class="sep" aria-hidden="true"></span>
+      </p>
+      <p class="intro reveal d2">
+        Puerto Rican engineering student exploring <strong>sustainability</strong>, <strong>strategy</strong>, and <strong>tech</strong> through creative, purpose-driven projects.
+      </p>
+      <div class="hero-actions reveal d3">
+        <a href="#projects" class="btn btn-primary">
+          View my work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          Get in touch
+        </a>
+      </div>
+      <div class="hero-meta reveal d3">
+        <div class="item"><div class="num">1st</div><div class="lbl">RISE Fellow from Puerto Rico</div></div>
+        <div class="item"><div class="num">5+</div><div class="lbl">Engineering &amp; research projects</div></div>
+        <div class="item"><div class="num">3</div><div class="lbl">Languages spoken</div></div>
+        <div class="item"><div class="num">7</div><div class="lbl">National honors &amp; awards</div></div>
+      </div>
+    </div>
+
+    <div class="hero-art reveal d2">
+      <div class="portrait">
+        <span class="monogram" aria-hidden="true">LM</span>
+        <span class="tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          Oxford · RISE Summit Speaker
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-body reveal">
+      <span class="eyebrow">About</span>
+      <h2 class="section-title">Innovation as a way to <em>give back.</em></h2>
+      <p style="margin-top:22px;">
+        I'm an <strong>Industrial Engineering student and Egleston Scholar</strong> at Columbia University,
+        with a minor in Artificial Intelligence. My work encompasses engineering, sustainability, marketing
+        strategy, and venture growth.
+      </p>
+      <p>
+        My portfolio includes <strong>molecular modeling of modified curcumin derivatives</strong> using
+        Schrödinger Maestro to explore cancer-pathway inhibition, and a <strong>Passive Earth Air Tunnel
+        System</strong> built with Arduino sensors and statistical analysis to cool classrooms in Puerto Rico.
+        Beyond the lab, I've merged data-based decision-making with a creative lens helping grow
+        Puerto Rico's fastest-rising wellness influencer through brand positioning, content strategy,
+        and partnerships.
+      </p>
+      <p>
+        As the <strong>first RISE Fellow from Puerto Rico</strong>, I shared my story at the
+        RISE Summit in Oxford speaking about how growing up on the island shaped my passion for
+        sustainable engineering and solutions rooted in uplifting under-resourced communities.
+      </p>
+      <div class="about-quote">
+        “Using innovation as a way to give back to the communities that have shaped me.”
+      </div>
+    </div>
+
+    <div class="facts reveal d1" aria-label="Quick facts">
+      <div class="fact">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+        <div><h4>Columbia University</h4><p>B.S. Industrial Engineering · Minor in AI · May 2029</p></div>
+      </div>
+      <div class="fact">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+        <div><h4>Egleston Scholar</h4><p>Columbia's distinction for exceptional engineers</p></div>
+      </div>
+      <div class="fact">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+        <div><h4>Rooted in Puerto Rico</h4><p>Building solutions for under-resourced communities</p></div>
+      </div>
+      <div class="fact">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></span>
+        <div><h4>Trilingual</h4><p>English &amp; Spanish (fluent) · French (conversational)</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills">
+  <div class="wrap">
+    <div class="skills-head reveal">
+      <span class="eyebrow" style="justify-content:center;">What I bring to a team</span>
+      <h2 class="section-title">A builder's toolkit for <em>hackathons</em> &amp; beyond.</h2>
+      <p class="section-lead">
+        I move fluidly between code, hardware, research, and strategy — the kind of full-stack
+        problem solver who can prototype, analyze the data, and pitch the story behind it.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="card skill-card reveal">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+        <h3>Programming</h3>
+        <p>Building data pipelines, simulations, and CLI tools from the ground up.</p>
+        <div class="pill-row">
+          <span class="pill">Python</span>
+          <span class="pill">Arduino IDE</span>
+          <span class="pill">HTML</span>
+          <span class="pill">LaTeX</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal d1">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
+        <h3>Data &amp; Analysis</h3>
+        <p>Turning raw data into decisions through statistical testing and modeling.</p>
+        <div class="pill-row">
+          <span class="pill">Data analysis</span>
+          <span class="pill">Statistical testing</span>
+          <span class="pill">ETL pipelines</span>
+          <span class="pill">Excel</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal d2">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6.5L4 18a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-9.5V2"/><path d="M8 2h8M7 16h10"/></svg></span>
+        <h3>Engineering &amp; Research</h3>
+        <p>From molecular docking to embedded sensors and technical documentation.</p>
+        <div class="pill-row">
+          <span class="pill">Schrödinger Maestro</span>
+          <span class="pill">Molecular docking</span>
+          <span class="pill">Sensors</span>
+          <span class="pill">Tech writing</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal d3">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span>
+        <h3>Strategy &amp; Growth</h3>
+        <p>Brand positioning, content strategy, and storytelling that drives engagement.</p>
+        <div class="pill-row">
+          <span class="pill">Marketing</span>
+          <span class="pill">Content strategy</span>
+          <span class="pill">Partnerships</span>
+          <span class="pill">Outreach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2 class="section-title">Projects that <em>solve real problems.</em></h2>
+      <p class="section-lead">
+        A blend of computational research, hardware prototyping, and software — each built to make
+        a measurable difference.
+      </p>
+    </div>
+
+    <div class="proj-grid">
+      <!-- Featured -->
+      <article class="card proj featured reveal">
+        <div class="proj-top">
+          <span class="proj-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2a10 10 0 0 0-3.54 19.36M12 2a10 10 0 0 1 9.5 6.9M4.6 18.4 8 15M16 9l3.4-3.4M16 15l3.4 3.4M8 9 4.6 5.6"/><circle cx="12" cy="2" r="1.4"/><circle cx="21.5" cy="9" r="1.4"/></svg></span>
+          <div>
+            <div class="proj-org">Interamerican University of Puerto Rico</div>
+            <h3>Molecular Modeling of Modified Curcumin</h3>
+          </div>
+        </div>
+        <p>
+          Designed and docked curcumin derivatives targeting the <strong>PI3K p110 subunit</strong> using
+          Schrödinger Maestro — assessing binding affinity to explore potential cancer-pathway inhibition.
+          A computational chemistry project bridging molecular design and data-driven evaluation.
+        </p>
+        <div class="tags">
+          <span class="tag">Schrödinger Maestro</span>
+          <span class="tag">Molecular Docking</span>
+          <span class="tag">Drug Discovery</span>
+          <span class="tag">Computational Chemistry</span>
+        </div>
+      </article>
+
+      <article class="card proj reveal d1">
+        <div class="proj-top">
+          <span class="proj-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v6l4 8a2 2 0 0 1-2 3H8a2 2 0 0 1-2-3l4-8V4"/><path d="M9 4h6"/><circle cx="12" cy="15" r="1"/></svg></span>
+          <div>
+            <div class="proj-org">Robinson School · Innovation Lab</div>
+            <h3>Passive Earth Air Tunnel System</h3>
+          </div>
+        </div>
+        <p>
+          Designed and tested a passive cooling system to reduce classroom temperatures in Puerto Rico,
+          using <strong>Arduino sensors</strong> and statistical analysis to confirm measurable temperature
+          reduction — sustainable climate adaptation with no energy cost.
+        </p>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">Sensors</span>
+          <span class="tag">Sustainability</span>
+          <span class="tag">Statistical Analysis</span>
+        </div>
+      </article>
+
+      <article class="card proj reveal d2">
+        <div class="proj-top">
+          <span class="proj-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
+          <div>
+            <div class="proj-org">Columbia University</div>
+            <h3>NYC Air Pollution Analyzer</h3>
+          </div>
+        </div>
+        <p>
+          Built a Python <strong>ETL pipeline</strong> to parse and process air-quality data from CSV files,
+          paired with a CLI tool for date- and location-based queries across all 42 NYC UHF districts.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">ETL Pipeline</span>
+          <span class="tag">CLI Tool</span>
+          <span class="tag">Data Processing</span>
+        </div>
+      </article>
+
+      <article class="card proj reveal d1">
+        <div class="proj-top">
+          <span class="proj-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span>
+          <div>
+            <div class="proj-org">Columbia University</div>
+            <h3>Infectious Disease Simulator</h3>
+          </div>
+        </div>
+        <p>
+          Built an <strong>agent-based epidemiological simulation</strong> on a NYC grid using the SIR
+          framework — with a probabilistic infection model and animated visualizations of disease spread.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Agent-Based Modeling</span>
+          <span class="tag">SIR Framework</span>
+          <span class="tag">Data Viz</span>
+        </div>
+      </article>
+
+      <article class="card proj reveal d2">
+        <div class="proj-top">
+          <span class="proj-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="M12 8v4M12 16h.01"/></svg></span>
+          <div>
+            <div class="proj-org">University of Puerto Rico · Río Piedras</div>
+            <h3>Radioactive Waste Management</h3>
+          </div>
+        </div>
+        <p>
+          Collaborated in a <strong>Nuclear Security Summer Program</strong> to research nuclear-waste
+          challenges and develop strategic solutions for a real-world case study.
+        </p>
+        <div class="tags">
+          <span class="tag">Nuclear Security</span>
+          <span class="tag">Research</span>
+          <span class="tag">Case Study</span>
+          <span class="tag">Team Collaboration</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section id="experience">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Experience</span>
+      <h2 class="section-title">Where I've made an <em>impact.</em></h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="card tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="tl-role">Operating Committee Leader</div>
+              <div class="tl-org">Columbia Organization of Rising Entrepreneurs (CORE) <span class="place">· New York, NY</span></div>
+            </div>
+            <span class="tl-date">Sep 2025 – Present</span>
+          </div>
+          <ul class="tl-list">
+            <li>Lead startup outreach for the CORE Fellowship, connecting applicants with internship opportunities across early-stage ventures.</li>
+            <li>Drive the ideation and planning of the CORE Podcast, supporting content strategy and our Digital Strategy initiative.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal d1">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="card tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="tl-role">Marketing &amp; Growth Strategist</div>
+              <div class="tl-org">Fiorella Medina · Wellness Brand <span class="place">· Puerto Rico</span></div>
+            </div>
+            <span class="tl-date">Independent</span>
+          </div>
+          <ul class="tl-list">
+            <li>Helped facilitate the expansion of one of Puerto Rico's fastest-growing wellness influencers.</li>
+            <li>Contributed to brand positioning, audience engagement, partnership ideas, and strategic content planning.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal d2">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="card tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="tl-role">Water Intern</div>
+              <div class="tl-org">Arcadis <span class="place">· Guaynabo, P.R.</span></div>
+            </div>
+            <span class="tl-date">May 2024 · Jun – Jul 2025</span>
+          </div>
+          <ul class="tl-list">
+            <li>Coordinated water-plant operations and translated complex procedures into clear English/Spanish SOPs.</li>
+            <li>Consolidated Gantt charts across planning, auctioning, construction, and execution phases to ensure timely delivery.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HONORS ===================== -->
+<section id="honors">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Recognition</span>
+      <h2 class="section-title">Honors &amp; <em>distinctions.</em></h2>
+    </div>
+
+    <div class="honors-grid">
+      <div class="honor reveal">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.4 1.6 6.8L12 16.9 6.4 20.5 8 13.7l-5-4.4 6.4-.7z"/></svg></span>
+        <div><h4>RISE Fellow</h4><p>First recipient from Puerto Rico · featured in local press</p></div>
+      </div>
+      <div class="honor reveal d1">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.4 1.6 6.8L12 16.9 6.4 20.5 8 13.7l-5-4.4 6.4-.7z"/></svg></span>
+        <div><h4>Egleston Scholar</h4><p>Columbia University's distinction for top engineers</p></div>
+      </div>
+      <div class="honor reveal d2">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.4 1.6 6.8L12 16.9 6.4 20.5 8 13.7l-5-4.4 6.4-.7z"/></svg></span>
+        <div><h4>Ricoh Sustainable Development Award</h4><p>For sustainability-driven engineering work</p></div>
+      </div>
+      <div class="honor reveal">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.4 1.6 6.8L12 16.9 6.4 20.5 8 13.7l-5-4.4 6.4-.7z"/></svg></span>
+        <div><h4>Most Outstanding Exhibit Award</h4><p>Yale Science &amp; Engineering Association</p></div>
+      </div>
+      <div class="honor reveal d1">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.4 1.6 6.8L12 16.9 6.4 20.5 8 13.7l-5-4.4 6.4-.7z"/></svg></span>
+        <div><h4>National Hispanic Recognition Program</h4><p>National academic distinction</p></div>
+      </div>
+      <div class="honor reveal d2">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.4 1.6 6.8L12 16.9 6.4 20.5 8 13.7l-5-4.4 6.4-.7z"/></svg></span>
+        <div><h4>National Student Council of Excellence</h4><p>Recognized for academic &amp; leadership excellence</p></div>
+      </div>
+    </div>
+
+    <!-- Oxford spotlight -->
+    <div class="spotlight reveal">
+      <span class="eyebrow">RISE Summit · Oxford</span>
+      <blockquote>
+        Growing up in Puerto Rico inspired my passion for engineering, sustainability, and building
+        solutions rooted in <em>uplifting under-resourced communities.</em>
+      </blockquote>
+      <p class="by">Shared on stage at the <strong>RISE Summit in Oxford</strong> — as a RISE Fellow and the first recipient from Puerto Rico.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <span class="eyebrow" style="justify-content:center;">Let's build something</span>
+      <h2>Looking for a teammate who <em>codes, analyzes &amp; tells the story?</em></h2>
+      <p>
+        I'm always excited to collaborate on hackathons, research, and projects that make an impact.
+        Let's connect.
+      </p>
+      <div class="contact-actions">
+        <a href="mailto:lvm2132@columbia.edu" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          Email me
+        </a>
+        <a href="https://www.linkedin.com/in/leilani-morales-309a41279" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:lvm2132@columbia.edu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          lvm2132@columbia.edu
+        </a>
+        <a href="tel:+17872444350">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+          787-244-4350
+        </a>
+        <a href="https://www.risefortheworld.org/winners/leilani-valeria-morales-vazquez/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          RISE Profile
+        </a>
+        <a href="https://www.engineering.columbia.edu/leilani-morales-vazquez" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Columbia Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Back to top">
+      <span class="mono" aria-hidden="true">LM</span>
+      <span>Leilani Morales</span>
+    </a>
+    <div class="socials">
+      <a href="mailto:lvm2132@columbia.edu" aria-label="Email Leilani">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/leilani-morales-309a41279" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+      </a>
+      <a href="https://www.risefortheworld.org/winners/leilani-valeria-morales-vazquez/" target="_blank" rel="noopener" aria-label="RISE profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+      </a>
+    </div>
+    <p style="margin-top:18px;">© <span id="year"></span> Leilani Morales · Industrial Engineering @ Columbia University</p>
+    <p style="margin-top:6px; font-size:0.8rem; opacity:0.85;">Designed with intention in New York &amp; Puerto Rico.</p>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar shadow on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+</script>
+</body>
 </html>
