@@ -319,30 +319,12 @@
     position: absolute; inset: 0;
     background: radial-gradient(18rem 18rem at 78% 12%, rgba(154,79,99,0.07), transparent 60%);
   }
-  .portrait .monogram {
-    position: relative;
-    font-family: var(--font-serif);
-    font-size: 7rem;
-    font-weight: 600;
-    font-style: italic;
-    color: var(--ink);
-    line-height: 1;
+  .portrait img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
   }
-  .portrait .tag {
-    position: absolute;
-    bottom: 20px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--line);
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--ink-2);
-    box-shadow: var(--shadow-sm);
-    display: inline-flex; align-items: center; gap: 7px;
-  }
-  .portrait .tag svg { width: 14px; height: 14px; color: var(--accent); }
 
   /* =========================================================
      CARDS / GENERIC
@@ -765,11 +747,7 @@
 
     <div class="hero-art reveal d2">
       <div class="portrait">
-        <span class="monogram" aria-hidden="true">LM</span>
-        <span class="tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          Oxford · RISE Summit Speaker
-        </span>
+        <img src="/mywebsite/leilani-portrait.jpg" alt="Leilani Morales standing in a garden" />
       </div>
     </div>
   </div>
